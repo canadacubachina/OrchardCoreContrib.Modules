@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<!--<TargetFramework>net8.0</TargetFramework>-->
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<VersionPrefix>1.5.0</VersionPrefix>
@@ -32,8 +32,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCore.Users" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<!--<PackageReference Include="OrchardCore.Users" />
+		<PackageReference Include="OrchardCoreContrib.Abstractions" />-->
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>
