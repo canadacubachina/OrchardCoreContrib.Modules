@@ -34,10 +34,10 @@
 	  <ProjectReference Include="..\..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
-	</ItemGroup>-->
+		<!--<PackageReference Include="OrchardCoreContrib.Abstractions" />
+		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />-->
+	</ItemGroup>
 
 </Project>

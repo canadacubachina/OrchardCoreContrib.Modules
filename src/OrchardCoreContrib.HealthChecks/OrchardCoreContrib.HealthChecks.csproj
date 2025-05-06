@@ -41,5 +41,7 @@
 		<PackageReference Include="OrchardCoreContrib.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
 	</ItemGroup>-->
-
+  <ItemGroup>   
+    <PackageReference Include="OrchardCore.Module.Targets" />
+  </ItemGroup>
 </Project>

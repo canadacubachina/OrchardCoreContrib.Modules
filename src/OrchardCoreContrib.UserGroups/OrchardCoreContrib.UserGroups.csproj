@@ -36,5 +36,7 @@
     <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
     <ProjectReference Include="..\..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Module.Targets" />
+  </ItemGroup>
 </Project>
