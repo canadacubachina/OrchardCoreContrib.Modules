@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -12,6 +12,7 @@ using OrchardCoreContrib.DataLocalization.Controllers;
 using OrchardCoreContrib.DataLocalization.Services;
 using OrchardCoreContrib.Localization.Data;
 using System;
+using OrchardCoreContrib.Localization.Extensions;
 
 namespace OrchardCoreContrib.DataLocalization
 {
@@ -30,12 +31,12 @@ namespace OrchardCoreContrib.DataLocalization
         /// <inheritdoc/>
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<INavigationProvider, AdminMenu>();
+            services.AddScoped<INavigationProvider, OrchardCore.DataLocalization.AdminMenu>();
             services.AddScoped<TranslationsManager>();
             services.AddScoped<IDataResourceStringProvider, ContentTypeResourceStringProvider>();
             services.AddScoped<IDataResourceStringProvider, ContentFieldResourceStringProvider>();
 
-            services.AddDataLocalization();
+            services.AddOrchardCoreContribDataLocalization();
 
             services.Replace(ServiceDescriptor.Singleton<IDataTranslationProvider, DataTranslationProvider>());
         }
