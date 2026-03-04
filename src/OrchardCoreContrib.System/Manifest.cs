@@ -20,7 +20,7 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Id = "OrchardCoreContrib.System.Updates",
     Name = "System Updates",
     Description = "Displays the available system updates.",
-    Dependencies = new[] { "OrchardCoreContrib.System" },
+    Dependencies = new[] { "OrchardCoreContrib.System" , "OrchardCore.HealthChecks" },
     DefaultTenantOnly = true
 )]
 

@@ -9,7 +9,7 @@ using OrchardCore.Mvc.Core.Utilities;
 using OrchardCore.Navigation;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
-using OrchardCoreContrib.HealthChecks;
+using OrchardCore.HealthChecks;
 using OrchardCoreContrib.System.Controllers;
 using OrchardCoreContrib.System.Drivers;
 using OrchardCoreContrib.System.HealthChecks;
@@ -37,6 +37,7 @@ public class Startup : StartupBase
     }
 }
 
+[RequireFeatures("OrchardCore.HealthChecks")]
 [Feature("OrchardCoreContrib.System.Updates")]
 public class UpdatesStartup : StartupBase
 {
