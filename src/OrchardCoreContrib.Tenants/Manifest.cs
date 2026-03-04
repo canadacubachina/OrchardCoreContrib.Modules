@@ -8,6 +8,6 @@ using ManifestConstants = OrchardCoreContrib.Modules.Manifest.ManifestConstants;
     Version = "1.2.1",
     Description = "Provides a way to manage tenants from the admin.",
     Category = "Infrastructure",
-    Dependencies = new [] { "OrchardCore.Tenants", "OrchardCoreContrib.HealthChecks" },
+    Dependencies = new [] { "OrchardCore.Tenants", "OrchardCore.HealthChecks" },
     DefaultTenantOnly = true
 )]
