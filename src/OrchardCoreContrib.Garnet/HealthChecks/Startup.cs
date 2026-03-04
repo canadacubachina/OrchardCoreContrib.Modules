@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Modules;
-using OrchardCoreContrib.HealthChecks;
+using OrchardCore.HealthChecks;
 
 namespace OrchardCoreContrib.Garnet.HealthChecks;
 
 /// <summary>
 /// Represensts a startup point to register the health checks for Garnet module.
 /// </summary>
-[RequireFeatures("OrchardCoreContrib.HealthChecks")]
+[RequireFeatures("OrchardCore.HealthChecks")]
 public class Startup : StartupBase
 {
     /// <inheritdoc/>
