@@ -4,11 +4,11 @@ using OrchardCore;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Models;
-using OrchardCoreContrib.ContentPermissions.Models;
+using GuangCore.ContentPermissions.Models;
 using System.Security.Claims;
 using System.Text.Json.Nodes;
 
-namespace OrchardCoreContrib.ContentPermissions.Services.Tests;
+namespace GuangCore.ContentPermissions.Services.Tests;
 
 public class ContentPermissionsServicesTests
 {

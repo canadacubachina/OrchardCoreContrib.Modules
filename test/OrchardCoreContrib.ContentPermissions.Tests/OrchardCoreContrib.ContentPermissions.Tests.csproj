@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj" />
+	  <ProjectReference Include="..\..\src\GuangCore.ContentPermissions\GuangCore.ContentPermissions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

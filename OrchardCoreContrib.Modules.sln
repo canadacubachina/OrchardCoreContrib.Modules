@@ -68,9 +68,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ContentPermissions", "src\OrchardCoreContrib.ContentPermissions\OrchardCoreContrib.ContentPermissions.csproj", "{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuangCore.ContentPermissions", "src\GuangCore.ContentPermissions\GuangCore.ContentPermissions.csproj", "{0BDB5C64-D4C3-454E-A54D-5F5A2169213B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ContentPermissions.Tests", "test\OrchardCoreContrib.ContentPermissions.Tests\OrchardCoreContrib.ContentPermissions.Tests.csproj", "{2E878DD9-9D64-4EDF-A47C-7EBD71377AF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuangCore.ContentPermissions.Tests", "test\GuangCore.ContentPermissions.Tests\GuangCore.ContentPermissions.Tests.csproj", "{2E878DD9-9D64-4EDF-A47C-7EBD71377AF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCoreContrib.ViewCount", "src\OrchardCoreContrib.ViewCount\OrchardCoreContrib.ViewCount.csproj", "{330877B1-7BE6-4B57-8714-2DADE1C53563}"
 EndProject
