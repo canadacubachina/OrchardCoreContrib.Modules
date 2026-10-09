@@ -1,0 +1,41 @@
+name: Orchard Core Contrib Modules - Pull Request
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+    - 'README.md'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        submodules: true
+        token: ${{ secrets.OCC_TOKEN || github.token }}
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: 10.0.*
+
+    - name: Install Dependencies
+      run: dotnet restore
+
+    - name: Build OrchardCoreContrib Submodule
+      run: dotnet build OrchardCoreContrib --configuration Release
+
+    - name: Build OrchardCoreContrib.Testing Submodule
+      run: dotnet build OrchardCoreContrib.Testing --configuration Release
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test --configuration Release --no-restore --verbosity normal

@@ -1,16 +1,15 @@
-﻿using OrchardCoreContrib.OpenApi.Abstractions;
+﻿using OrchardCoreContrib.OpenApi;
 
-namespace OrchardCoreContrib.Apis.Swagger
+namespace OrchardCoreContrib.Apis.Swagger;
+
+/// <summary>
+/// Respresents a swagger API definition for Orchard Core.
+/// </summary>
+public class SwaggerApiDefinition : OpenApiDefinition
 {
-    /// <summary>
-    /// Respresents a swagger API definition for Orchard Core.
-    /// </summary>
-    public class SwaggerApiDefinition : OpenApiDefinition
-    {
-        /// <inheritdoc/>
-        public override string Name => "Orchard Core APIs Docs";
+    /// <inheritdoc/>
+    public override string Name => "Orchard Core APIs Docs";
 
-        /// <inheritdoc/>
-        public override string Version => "v1.0.0";
-    }
+    /// <inheritdoc/>
+    public override string Version => "v1.0.0";
 }

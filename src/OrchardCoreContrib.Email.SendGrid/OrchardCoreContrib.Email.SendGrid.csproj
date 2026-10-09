@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-        <VersionPrefix>1.6.0</VersionPrefix>
+		<VersionPrefix>1.7.0</VersionPrefix>
         <Authors>The Orchard Core Contrib Team</Authors>
         <Company />
         <Description>Provides mailing functionality using SendGrid service.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Email.SendGrid/README.md</PackageProjectUrl>
         <RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -27,7 +28,6 @@
     <ItemGroup>
         <None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
     </ItemGroup>
-
     <ItemGroup>
         <PackageReference Include="SendGrid" />
         <!-- <PackageReference Include="OrchardCore.Admin.Abstractions" />
@@ -43,6 +43,10 @@
     <ItemGroup>
       <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
       <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
+
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>

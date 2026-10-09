@@ -2,10 +2,11 @@
 
 	<PropertyGroup>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionPrefix>1.5.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides a list of content localization features such as localization matrix.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.ContentLocalization/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -25,15 +26,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<!--<PackageReference Include="OrchardCore.Contents.TagHelpers" />
 		<PackageReference Include="OrchardCore.ContentLocalization" />-->
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<!--<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.ContentLocalization.Core" />
+
 		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />-->
 	</ItemGroup>
 
@@ -41,6 +38,9 @@
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.ContentLocalization.Core\OrchardCoreContrib.ContentLocalization.Core.csproj" />
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
+	<ItemGroup>
+		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>

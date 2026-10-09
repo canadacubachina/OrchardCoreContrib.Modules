@@ -1,0 +1,47 @@
+@using Microsoft.AspNetCore.Http.Features
+@using OrchardCore.Settings
+@using OrchardCoreContrib.Gdpr
+@inject ISiteService SiteService
+
+@{
+    var consentFeature = Context.Features.Get<ITrackingConsentFeature>();
+
+    var cookieString = consentFeature?.CreateConsentCookie();
+
+    var siteSettings = await SiteService.GetSiteSettingsAsync();
+
+    siteSettings.TryGet<GdprSettings>(out var gdprSettings);
+}
+
+<style>
+    .sticky {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 2147483647;
+    }
+
+    .override-font {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1rem;
+    }
+</style>
+
+<div id="cookieConsent" class="alert alert-info alert-dismissible fade show sticky override-font" role="alert">
+    <i class="fa-solid fa-circle-info"></i>
+    @gdprSettings.Summary
+    <div class="float-end">
+        <a class="btn btn-info" asp-area="OrchardCoreContrib.Gdpr" asp-controller="Home" asp-action="Privacy">Learn More</a>
+        <button type="button" class="btn btn-light" data-bs-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">Accept</button>
+    </div>
+</div>
+<script>
+    (function () {
+        var acceptButton = document.querySelector("#cookieConsent button[data-cookie-string]");
+
+        acceptButton.addEventListener("click", function () {
+            document.cookie = acceptButton.dataset.cookieString;
+        }, false);
+    })();
+</script>

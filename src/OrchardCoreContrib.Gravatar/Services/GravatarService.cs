@@ -1,32 +1,25 @@
 ﻿using Microsoft.Extensions.Options;
-using System;
-using System.ComponentModel.DataAnnotations;
+using OrchardCoreContrib.Avatars;
+using OrchardCoreContrib.Infrastructure;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace OrchardCoreContrib.Gravatar.Services;
 
-public class GravatarService : IGravatarService
+public class GravatarService(IOptions<GravatarOptions> gravatarOptions) : IAvatarService
 {
     private const string GravatarUrl = "http://www.gravatar.com/avatar/";
 
-    private readonly GravatarOptions _gravatarOptions;
+    private readonly GravatarOptions _gravatarOptions = gravatarOptions.Value;
 
-    public GravatarService(IOptions<GravatarOptions> gravatarOptions)
+    public string GetAvatar(AvatarContext context, int size = 80)
     {
-        _gravatarOptions = gravatarOptions.Value;
-    }
+        Guard.ArgumentNotNull(context, nameof(context));
+        Guard.ArgumentNotNullOrEmpty(context.Email, nameof(context.Email));
 
-    public string GetAvatarUrl(string email, [Range(1, 512)] int size = GravatarConstants.DefaultSize)
-    {
-        if (string.IsNullOrEmpty(email))
-        {
-            throw new ArgumentException($"'{nameof(email)}' cannot be null or empty.", nameof(email));
-        }
+        var hash = ComputeHash(context.Email);
 
-        var hash = ComputeHash(email);
-
-        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={size}&r={_gravatarOptions.Rating}";
+        var gravatarImageUrl = $"{GravatarUrl}{hash}?s={size}&r={_gravatarOptions.Rating.ToString().ToLower()}";
 
         if (!String.IsNullOrEmpty(_gravatarOptions.DefaultImage))
         {
@@ -38,9 +31,8 @@ public class GravatarService : IGravatarService
 
     private static string ComputeHash(string email)
     {
-        var md5 = MD5.Create();
         var bytes = Encoding.ASCII.GetBytes(email);
-        var hash = md5.ComputeHash(bytes);
+        var hash = MD5.HashData(bytes);
         var sb = new StringBuilder();
 
         for (var i = 0; i < hash.Length; i++)

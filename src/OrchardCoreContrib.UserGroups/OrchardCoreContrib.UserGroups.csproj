@@ -3,10 +3,11 @@
     <!--<TargetFramework>net9.0</TargetFramework>-->
 
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <VersionPrefix>1.0.0</VersionPrefix>
+		<VersionPrefix>1.1.0</VersionPrefix>
     <Authors>The Orchard Core Contrib Team</Authors>
     <Company />
     <Description>Provides a way to group the users.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/GuangCore.ContentPermissions/README.md</PackageProjectUrl>
     <RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -27,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
     <None Include="../../images/icon.png" Pack="true" PackagePath="\" />
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>

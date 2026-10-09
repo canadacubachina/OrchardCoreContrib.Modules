@@ -4,12 +4,11 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using OrchardCore.Modules;
-using OrchardCore.HealthChecks;
-using System;
+using OrchardCoreContrib.HealthChecks;
 
 namespace OrchardCoreContrib.Email.SendGrid.HealthChecks;
 
-[RequireFeatures("OrchardCore.HealthChecks")]
+[RequireFeatures("OrchardCoreContrib.HealthChecks")]
 public class Startup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)

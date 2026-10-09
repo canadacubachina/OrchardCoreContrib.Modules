@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+﻿using Garnet.client;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
 using OrchardCore.Environment.Shell;
 using OrchardCoreContrib.Garnet.Tests;
+using System.Net;
 
 namespace OrchardCoreContrib.Garnet.Services.Tests;
 
@@ -15,11 +14,15 @@ public class GarnetBusTests : TestBase
 
     public override async Task InitializeAsync()
     {
-        _garnetService = await CreateGarnetServiceAsync();
+        _garnetService = await Utilities.CreateGarnetServiceAsync();
 
         _garnetBus = new GarnetBus(
             _garnetService,
-            Options.Create(new GarnetOptions()),
+            Options.Create(new GarnetOptions
+            {
+                Host = "127.0.0.1",
+                Port = TestBase.Port,
+            }),
             new ShellSettings(),
             NullLogger<GarnetBus>.Instance);
 
@@ -42,6 +45,7 @@ public class GarnetBusTests : TestBase
             Assert.Equal(message, m);
 
             recieved = true;
+            @event.Set();
         });
 
         int repeat = 5;
@@ -70,24 +74,16 @@ public class GarnetBusTests : TestBase
         // Act
         await _garnetBus.PublishAsync(channel, "Hello World!!");
 
-        // Assert
+        // Assert - use a dedicated client to avoid putting the shared client into subscribe mode
+        var endpoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), TestBase.Port);
+        using var dedicatedClient = new GarnetClient(endpoint);
+        await dedicatedClient.ConnectAsync();
+
         for (int i = 1; i <= 5; i++)
         {
-            var results = await _garnetService.Client.ExecuteForStringArrayResultAsync(command, [channel]);
+            var results = await dedicatedClient.ExecuteForStringArrayResultAsync(command, [channel]);
             Assert.Equal(3, results.Length);
-            Assert.Equal([command, channel, i.ToString()], results);
+            Assert.Equal([command, channel, "1"], results);
         }
-    }
-
-    private static async Task<IGarnetService> CreateGarnetServiceAsync()
-    {
-        var garnetClientFactory = new GarnetClientFactory(
-            Mock.Of<IHostApplicationLifetime>(),
-            Mock.Of<ILogger<GarnetClientFactory>>());
-        var garnetService = new GarnetService(garnetClientFactory, Options.Create(new GarnetOptions()));
-
-        await garnetService.ConnectAsync();
-
-        return garnetService;
     }
 }

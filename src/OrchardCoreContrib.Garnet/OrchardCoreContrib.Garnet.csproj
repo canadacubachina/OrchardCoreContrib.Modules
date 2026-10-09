@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<VersionPrefix>1.4.0</VersionPrefix>
+		<VersionPrefix>1.6.0</VersionPrefix>
 		<Authors>The Orchard Core Contrib Team</Authors>
 		<Company />
 		<Description>Provides Garnet features for configuration, cache, bus and data protection.</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules/tree/main/src/OrchardCoreContrib.Garnet/README.md</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/OrchardCoreContrib/OrchardCoreContrib.Modules</RepositoryUrl>
@@ -23,8 +24,6 @@
 		<!-- <PackageReference Include="OrchardCore.Infrastructure.Abstractions" /> -->
 		<PackageReference Include="OrchardCore.Module.Targets" />
 		<!-- <PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Garnet.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.HealthChecks.Abstractions" />
 		<PackageReference Include="OrchardCoreContrib.Infrastructure.Abstractions" /> -->
 		<PackageReference Include="StackExchange.Redis" />
 	</ItemGroup>
@@ -36,7 +35,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Garnet.Abstractions\OrchardCoreContrib.Garnet.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.HealthChecks.Abstractions\OrchardCoreContrib.HealthChecks.Abstractions.csproj" />
+		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Liquid;
 using OrchardCore.Modules;
+using OrchardCoreContrib.Avatars;
 using OrchardCoreContrib.Gravatar.Liquid;
 using OrchardCoreContrib.Gravatar.Services;
 using OrchardCoreContrib.Gravatar.TagHelpers;
@@ -11,24 +12,17 @@ namespace OrchardCoreContrib.Gravatar;
 /// <summary>
 /// Represents an entry point to register the user avatar required services.
 /// </summary>
-public class Startup : StartupBase
+public class Startup(IShellConfiguration shellConfiguration) : StartupBase
 {
-    private readonly IShellConfiguration _shellConfiguration;
-
-    public Startup(IShellConfiguration shellConfiguration)
-    {
-        _shellConfiguration = shellConfiguration;
-    }
-
     /// <inheritdoc/>
     public override void ConfigureServices(IServiceCollection services)
     {
-        services.AddScoped<IGravatarService, GravatarService>();
+        services.AddScoped<IAvatarService, GravatarService>();
 
         services.AddTagHelpers<GravatarTagHelper>();
 
         services.AddLiquidFilter<GravatarFilter>("gravatar_url");
 
-        services.Configure<GravatarOptions>(_shellConfiguration.GetSection("OrchardCoreContrib_Gravatar"));
+        services.Configure<GravatarOptions>(shellConfiguration.GetSection("OrchardCoreContrib_Gravatar"));
     }
 }
