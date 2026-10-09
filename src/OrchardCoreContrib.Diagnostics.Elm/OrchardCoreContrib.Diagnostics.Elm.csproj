@@ -25,11 +25,7 @@
 		<PackageReference Include="OrchardCore.Module.Targets" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
-	</ItemGroup>
-		<!--<PackageReference Include="OrchardCoreContrib.Abstractions" />-->
-	</ItemGroup>
+	
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />

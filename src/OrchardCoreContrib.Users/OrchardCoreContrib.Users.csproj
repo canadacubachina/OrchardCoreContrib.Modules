@@ -28,30 +28,26 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+		<!--<PackageReference Include="Microsoft.Extensions.Http.Resilience" />-->
 		<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCore.Users" />
+		<!--<PackageReference Include="OrchardCore.Users" />-->
 		<PackageReference Include="SkiaSharp" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<!--<PackageReference Include="OrchardCore.Module.Targets" />
-		<PackageReference Include="OrchardCore.Users" />-->
-		<ProjectReference Include="$(OrchardCoreContribPath)\OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
-		<!--<PackageReference Include="OrchardCoreContrib.Abstractions" />
-		<PackageReference Include="OrchardCoreContrib.Navigation.Core" />-->
+
 
 	<ItemGroup>
 		<None Include="../../images/icon.png" Pack="true" PackagePath="icon.png" />
-		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Avatars.Abstractions\OrchardCoreContrib.Avatars.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\OrchardCoreContrib\src\OrchardCoreContrib.Navigation.Core\OrchardCoreContrib.Navigation.Core.csproj" />
 	  <ProjectReference Include="..\..\..\src\GuangCore\GuangCore.TopRef\GuangCore.TopRef.csproj" />
 	</ItemGroup>
-  <ItemGroup>
+  <!--<ItemGroup>
     <PackageReference Include="OrchardCore.Module.Targets" />
-  </ItemGroup>
+  </ItemGroup>-->
 </Project>
