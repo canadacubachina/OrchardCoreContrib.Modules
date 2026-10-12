@@ -5,14 +5,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluid.Core" />
+		<!--<PackageReference Include="Fluid.Core" />-->
 		<PackageReference Include="OrchardCore.Module.Targets" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\OrchardCoreContrib\src\OrchardCoreContrib.Templating.Abstractions\OrchardCoreContrib.Templating.Abstractions.csproj" />
+	</ItemGroup>
+
+	<!-- <ItemGroup>
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Abstractions\OrchardCoreContrib.Abstractions.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Infrastructure.Abstractions\OrchardCoreContrib.Infrastructure.Abstractions.csproj" />
 		<ProjectReference Include="$(OrchardCoreContribPath)OrchardCoreContrib.Templating.Abstractions\OrchardCoreContrib.Templating.Abstractions.csproj" />
-	</ItemGroup>
+	</ItemGroup> -->
 
 </Project>
