@@ -9,7 +9,10 @@
 @attribute [Feature("OrchardCoreContrib.Users.Avatar")]
 @{
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
+    if (string.IsNullOrEmpty(userId))
+    {
+        return;
+    }
     var avatar = AvatarService.GetAvatar(new AvatarContext { DisplayName = User.Identity.Name });
 }
 
